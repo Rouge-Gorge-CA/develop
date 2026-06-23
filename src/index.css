@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #FAF7F2;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #F5F0E8;
+    --text: #1C1814;
+    --text-muted: #6B6560;
+    --accent: #C4855A;
+    --sage: #6B7C60;
+    --border: #E8E2D9;
+    --border-strong: #D0C8BC;
+  }
+
+  .dark {
+    --bg: #0F0E0C;
+    --bg-card: #1A1916;
+    --bg-card-hover: #222019;
+    --text: #F2EDE4;
+    --text-muted: #A09A90;
+    --accent: #C4855A;
+    --sage: #6B7C60;
+    --border: #2E2C28;
+    --border-strong: #3E3B35;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border-strong);
+    border-radius: 3px;
+  }
+}
+
+@layer components {
+  .card-bg {
+    background-color: var(--bg-card);
+    border-color: var(--border);
+  }
+
+  .card-bg:hover {
+    background-color: var(--bg-card-hover);
+  }
+
+  .input-base {
+    background-color: var(--bg-card);
+    border-color: var(--border);
+    color: var(--text);
+  }
+
+  .input-base::placeholder {
+    color: var(--text-muted);
+  }
+
+  .input-base:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+}
