@@ -1,6 +1,4 @@
 const { createClient } = require('@libsql/client')
-const path = require('path')
-const fs = require('fs')
 
 const db = createClient(
   process.env.TURSO_DATABASE_URL
@@ -39,10 +37,12 @@ const ready = (async () => {
 })()
 
 async function seed() {
-  const DATA_PATH = path.join(__dirname, 'data/wines.json')
-  if (!fs.existsSync(DATA_PATH)) return
-
-  const wines = JSON.parse(fs.readFileSync(DATA_PATH, 'utf-8'))
+  let wines
+  try {
+    wines = require('./data/wines.json')
+  } catch {
+    return
+  }
 
   for (let i = 0; i < wines.length; i += 100) {
     const batch = wines.slice(i, i + 100).map(w => ({
