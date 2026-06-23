@@ -14,7 +14,7 @@ router.post('/login', async (req, res) => {
   const { password } = req.body
   if (!password) return res.status(400).json({ error: 'Mot de passe requis' })
 
-  const hash = process.env.ADMIN_PASSWORD_HASH
+  const hash = process.env.ADMIN_PASSWORD_HASH || process.env.ADMIN_PASSWORD_HASHED
   if (!hash) return res.status(500).json({ error: 'ADMIN_PASSWORD_HASH non configuré' })
 
   const valid = await bcrypt.compare(password, hash)
