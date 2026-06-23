@@ -2,10 +2,9 @@
   command = "npm run build"
   publish = "dist"
 
-# Proxy tous les appels /api/* vers le backend déployé sur Railway/Render
-# Remplacer l'URL ci-dessous par celle de ton backend après déploiement
-[[redirects]]
-  from = "/api/*"
-  to = "https://REMPLACER-PAR-TON-BACKEND.railway.app/api/:splat"
-  status = 200
-  force = true
+# Décommenter et remplacer l'URL quand le backend Railway est déployé :
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://TON-BACKEND.railway.app/api/:splat"
+#   status = 200
+#   force = true
