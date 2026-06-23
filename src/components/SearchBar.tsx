@@ -30,6 +30,7 @@ export function SearchBar({ value, onChange }: Props) {
         onChange={e => onChange(e.target.value)}
         placeholder="Rechercher un vin, cépage, région…"
         className="input-base w-full pl-9 pr-9 py-2 rounded-lg border text-sm transition-colors"
+        style={{ fontSize: 16 }}
       />
       {value && (
         <button
