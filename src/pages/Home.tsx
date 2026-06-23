@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import type { Filters, SortOption } from '../types/wine'
 import { useWines } from '../hooks/useWines'
 import { useFilteredWines } from '../hooks/useFilteredWines'
@@ -98,6 +99,21 @@ export function Home({ theme, onToggleTheme }: Props) {
           <SearchBar value={query} onChange={setQuery} />
 
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+
+          <Link
+            to="/admin/login"
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium flex-shrink-0 transition-colors"
+            style={{
+              color: 'var(--text-muted)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="8" r="4" />
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+            </svg>
+            Admin
+          </Link>
         </div>
       </header>
 
